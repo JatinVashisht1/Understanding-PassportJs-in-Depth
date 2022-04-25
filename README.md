@@ -126,7 +126,7 @@ framework and attach the authenticated user to **"req.session.passport.user.{...
 - This allows authenticated user to be "attached" to a unique session
 - PassportJS directly maintains authenticated users for each session within the **"req.session.passport.user.{...}"**
 
-#### De-serializeUser
+### De-serializeUser
 - To get user user details for session we can get it from "req.session.passport.**user.{...}**
 - definition of `passport.deserializedUser()`
 ```
