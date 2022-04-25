@@ -116,7 +116,7 @@ passport.serializeUser((userObj, done)=>{
     done(null, userObj)
 })
 ```
-##### Understanding flow of `SerializeUser`
+###### Understanding flow of `SerializeUser`
 - **"express-session"** created a **"req.session"** object, when it is invoked via app.use(session{...})
 - **"passport"** then adds an additional object "req.session.**passport**" to this "req.session"
 - **All the serializeUser() function does is,** it receives the "authenticated use" object from "Strategy",
@@ -126,7 +126,7 @@ framework and attach the authenticated user to **"req.session.passport.user.{...
 - This allows authenticated user to be "attached" to a unique session
 - PassportJS directly maintains authenticated users for each session within the **"req.session.passport.user.{...}"**
 
-### De-serializeUser
+#### De-serializeUser
 - To get user user details for session we can get it from "req.session.passport.**user.{...}**
 - definition of `passport.deserializedUser()`
 ```
@@ -135,7 +135,7 @@ passport.deserializeUser((userObj, done)=>{
 })
 ```
 
-#### Understanding flow of De-Serializeduser
+##### Understanding flow of De-Serializeduser
 - PassportJS populates "userObj" in deserializeuser() with the object attached at the end of **"req.session.passport.user.{...}"**
 - When the done(null, user) function is called in the deserializeUser(), passport js takes this last object attached to **"req.session.passport.user.{...}"**, and attache it to **"req.user"** i.e **"req.user.{...}"**
 
